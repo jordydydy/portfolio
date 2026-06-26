@@ -60,7 +60,7 @@ export function AppSidebar() {
                             alt="Djordy Fernando Avatar"
                             width={28}
                             height={28}
-                            className="h-full w-full object-cover grayscale contrast-110"
+                            className="h-full w-full object-cover"
                         />
                     </div>
                     <div className="flex flex-col">
