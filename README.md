@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Djordy Fernando — Portfolio Website
 
-## Getting Started
+A premium, modern portfolio website built using **Next.js 16**, **React**, and **Tailwind CSS**. It serves as a digital showcase for my background as an IT Technical Consultant at PT Indonesia Global Solusindo (ISGS) and Computer Science Student at BINUS University.
 
-First, run the development server:
+## 🚀 Key Features
 
+* **Interactive Directory Shell**: A custom client-side terminal emulator component allowing visitors to type commands (e.g., `help`, `about`, `projects`, `skills`, `theme`, `clear`) to navigate the site.
+* **Modern Design System**: Built with clean CSS, dark/light themes, sleek animations, and responsive Tailwind layouts.
+* **Interactive Projects & Certifications**: Grid lists detailing development works and professional industry certifications (with external credential links and hover micro-animations).
+* **Automated Static Deployment**: Fully optimized static export integration configured for GitHub Pages using GitHub Actions.
+
+---
+
+## 🛠️ Getting Started
+
+### 1. Install Dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Run the Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Build & Static Export
+```bash
+npm run build
+```
+This generates optimized static HTML/CSS/JS files inside the `/out` directory.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📦 Deployment (GitHub Pages)
 
-To learn more about Next.js, take a look at the following resources:
+This project has an automated GitHub Actions deployment pipeline configured at `.github/workflows/deploy.yml`. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Every time code is pushed to the `main` branch, GitHub will:
+1. Checkout the code.
+2. Build the Next.js static files.
+3. Automatically deploy them to GitHub Pages.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> **Note**: If hosting on the default GitHub URL (`https://jordydydy.github.io/portfolio/`), make sure to configure `basePath: '/portfolio'` inside `next.config.ts` so asset paths resolve correctly. If utilizing a custom domain (e.g., `https://djordy.dev`), no `basePath` changes are required.
