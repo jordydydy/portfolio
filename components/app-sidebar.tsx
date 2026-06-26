@@ -107,7 +107,7 @@ export function AppSidebar() {
                     <div className="flex items-center gap-1">
                         <a
                             id="sidebar-git"
-                            href="https://github.com"
+                            href="https://github.com/jordydydy"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex h-7 w-7 items-center justify-center rounded text-zinc-500 hover:bg-zinc-200/50 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors"
