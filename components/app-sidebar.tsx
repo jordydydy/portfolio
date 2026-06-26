@@ -4,6 +4,7 @@ import * as React from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
+import avatarImg from "@/public/avatar.jpg"
 import {
     Home,
     FolderGit2,
@@ -56,7 +57,7 @@ export function AppSidebar() {
                 <div className="flex items-center gap-3">
                     <div className="relative h-7 w-7 overflow-hidden rounded border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900">
                         <Image
-                            src="/avatar.jpg"
+                            src={avatarImg}
                             alt="Djordy Fernando Avatar"
                             width={28}
                             height={28}
