@@ -33,17 +33,17 @@ export function ContactForm() {
 
     if (status === "success") {
         return (
-            <div className="rounded border border-zinc-200 dark:border-zinc-900 bg-zinc-100/30 dark:bg-zinc-950/20 p-8 space-y-5 text-center flex flex-col items-center justify-center animate-in fade-in duration-300">
-                <CheckCircle2 className="h-8 w-8 text-emerald-500" />
+            <div className="liquid-glass glass-glossy p-8 space-y-5 text-center flex flex-col items-center justify-center animate-in fade-in duration-300">
+                <CheckCircle2 className="h-8 w-8 text-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
                 <div className="space-y-2">
-                    <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">message dispatched</h3>
-                    <p className="text-[11px] text-zinc-500 max-w-xs leading-relaxed">
+                    <h3 className="text-sm font-bold text-zinc-950 dark:text-white tracking-tight">message dispatched</h3>
+                    <p className="text-[11px] text-zinc-600 dark:text-zinc-400 max-w-xs leading-relaxed font-sans">
                         Your inquiry was received. I will get back to you within 24 hours.
                     </p>
                 </div>
                 <button
                     onClick={() => setStatus("idle")}
-                    className="inline-flex h-8 items-center gap-1.5 rounded border border-zinc-200 dark:border-zinc-800 bg-transparent px-3 text-xs font-mono font-medium text-zinc-550 dark:text-zinc-400 hover:text-zinc-900 hover:dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900/50 transition-colors cursor-pointer"
+                    className="inline-flex h-8 items-center gap-1.5 px-4 text-xs font-mono font-medium transition-all btn-gel-graphite"
                 >
                     <RefreshCw className="h-3 w-3" />
                     <span>send another</span>
@@ -53,10 +53,10 @@ export function ContactForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="rounded border border-zinc-200 dark:border-zinc-900 bg-zinc-100/30 dark:bg-zinc-950/20 p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="liquid-glass glass-glossy p-6 space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                    <label htmlFor="contact-name" className="text-[10px] text-zinc-455 dark:text-zinc-505 uppercase tracking-wider">
+                    <label htmlFor="contact-name" className="text-[10px] text-zinc-450 dark:text-zinc-500 uppercase tracking-wider font-semibold">
                         name
                     </label>
                     <Input
@@ -68,11 +68,11 @@ export function ContactForm() {
                         onChange={handleChange}
                         required
                         disabled={status === "submitting"}
-                        className="bg-white dark:bg-black/50 border-zinc-200 dark:border-zinc-900 rounded h-9 px-3 text-xs text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus-visible:border-zinc-400 dark:focus-visible:border-zinc-700 focus-visible:ring-0 disabled:opacity-50"
+                        className="bg-white/10 dark:bg-black/35 border-white/20 dark:border-white/10 rounded-lg h-9 px-3 text-xs text-zinc-955 dark:text-white placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus-visible:border-primary/50 dark:focus-visible:border-primary/50 focus-visible:ring-1 focus-visible:ring-primary/30 disabled:opacity-50 shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.3)] transition-all"
                     />
                 </div>
                 <div className="space-y-1.5">
-                    <label htmlFor="contact-email" className="text-[10px] text-zinc-455 dark:text-zinc-505 uppercase tracking-wider">
+                    <label htmlFor="contact-email" className="text-[10px] text-zinc-450 dark:text-zinc-500 uppercase tracking-wider font-semibold">
                         email
                     </label>
                     <Input
@@ -84,13 +84,13 @@ export function ContactForm() {
                         onChange={handleChange}
                         required
                         disabled={status === "submitting"}
-                        className="bg-white dark:bg-black/50 border-zinc-200 dark:border-zinc-900 rounded h-9 px-3 text-xs text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus-visible:border-zinc-400 dark:focus-visible:border-zinc-700 focus-visible:ring-0 disabled:opacity-50"
+                        className="bg-white/10 dark:bg-black/35 border-white/20 dark:border-white/10 rounded-lg h-9 px-3 text-xs text-zinc-955 dark:text-white placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus-visible:border-primary/50 dark:focus-visible:border-primary/50 focus-visible:ring-1 focus-visible:ring-primary/30 disabled:opacity-50 shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.3)] transition-all"
                     />
                 </div>
             </div>
 
             <div className="space-y-1.5">
-                <label htmlFor="contact-subject" className="text-[10px] text-zinc-455 dark:text-zinc-505 uppercase tracking-wider">
+                <label htmlFor="contact-subject" className="text-[10px] text-zinc-450 dark:text-zinc-500 uppercase tracking-wider font-semibold">
                     subject
                 </label>
                 <Input
@@ -102,12 +102,12 @@ export function ContactForm() {
                     onChange={handleChange}
                     required
                     disabled={status === "submitting"}
-                    className="bg-white dark:bg-black/50 border-zinc-200 dark:border-zinc-900 rounded h-9 px-3 text-xs text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus-visible:border-zinc-400 dark:focus-visible:border-zinc-700 focus-visible:ring-0 disabled:opacity-50"
+                    className="bg-white/10 dark:bg-black/35 border-white/20 dark:border-white/10 rounded-lg h-9 px-3 text-xs text-zinc-955 dark:text-white placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus-visible:border-primary/50 dark:focus-visible:border-primary/50 focus-visible:ring-1 focus-visible:ring-primary/30 disabled:opacity-50 shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.3)] transition-all"
                 />
             </div>
 
             <div className="space-y-1.5">
-                <label htmlFor="contact-message" className="text-[10px] text-zinc-455 dark:text-zinc-505 uppercase tracking-wider">
+                <label htmlFor="contact-message" className="text-[10px] text-zinc-450 dark:text-zinc-500 uppercase tracking-wider font-semibold">
                     message
                 </label>
                 <textarea
@@ -119,7 +119,7 @@ export function ContactForm() {
                     onChange={handleChange}
                     required
                     disabled={status === "submitting"}
-                    className="min-h-[100px] w-full rounded border border-zinc-200 dark:border-zinc-900 bg-white dark:bg-black/50 px-3 py-2 text-xs text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus-visible:border-zinc-400 dark:focus-visible:border-zinc-700 focus-visible:ring-0 outline-none transition-colors disabled:opacity-50"
+                    className="min-h-[100px] w-full rounded-lg border border-white/20 dark:border-white/10 bg-white/10 dark:bg-black/35 px-3 py-2 text-xs text-zinc-955 dark:text-white placeholder:text-zinc-400 dark:placeholder:text-zinc-650 focus-visible:border-primary/50 dark:focus-visible:border-primary/50 focus-visible:ring-1 focus-visible:ring-primary/30 outline-none shadow-[inset_0_1px_2px_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.3)] transition-all disabled:opacity-50"
                 />
             </div>
 
@@ -127,7 +127,7 @@ export function ContactForm() {
                 type="submit"
                 id="contact-submit"
                 disabled={status === "submitting"}
-                className="inline-flex h-9 w-full items-center justify-center gap-1.5 rounded bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-black dark:hover:bg-zinc-200 px-4 text-xs font-mono font-medium transition-colors cursor-pointer disabled:opacity-50"
+                className="inline-flex h-9 w-full items-center justify-center gap-1.5 px-4 text-xs font-mono font-medium transition-all btn-gel disabled:opacity-50"
             >
                 {status === "submitting" ? (
                     <>

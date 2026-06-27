@@ -8,8 +8,8 @@ type Project = {
     title: string
     description: string
     tech: string[]
-    github: string
-    demo: string
+    github?: string
+    demo?: string
     label: string
     categories: ("frontend" | "backend" | "infra")[]
     isPlaceholder?: boolean
@@ -21,7 +21,6 @@ const projects: Project[] = [
         title: "isgs corporate web portal",
         description: "Developed the complete front-end and back-end Company Profile portal for PT Indonesia Global Solusindo. Implemented responsive layout architectures and structural forms.",
         tech: ["next.js", "react", "tailwind", "node.js"],
-        github: "https://github.com",
         demo: "https://www.is-gs.com",
         label: "01",
         categories: ["frontend", "backend"]
@@ -31,7 +30,6 @@ const projects: Project[] = [
         description: "Built custom Python backend middleware routing chatbot flows to messaging platforms (WhatsApp, Instagram, Email) for public relations campaigns of an Indonesian Governor.",
         tech: ["python", "websockets", "REST API", "chatbots"],
         github: "https://github.com/jordydydy/omnichannel",
-        demo: "https://github.com",
         label: "02",
         categories: ["backend"]
     },
@@ -39,33 +37,27 @@ const projects: Project[] = [
         title: "dify RPA automation agent",
         description: "Configured intelligent robotic process automation (RPA) workflows and customer chatbot support agents utilizing Dify.ai node orchestrations.",
         tech: ["dify.ai", "RPA", "conversational AI", "automations"],
-        github: "https://github.com",
-        demo: "https://github.com",
         label: "03",
         categories: ["backend", "infra"]
     },
-    {
-        title: "academic database system",
-        description: "A placeholder for a relational database project focused on advanced normalizations, transactional isolation, and query query optimizations.",
-        tech: ["postgresql", "sql server", "database optimization"],
-        github: "https://github.com",
-        demo: "https://github.com",
-        label: "04",
-        categories: ["backend"],
-        isPlaceholder: true,
-        statusLabel: "academic project"
-    },
-    {
-        title: "data analytics workflow",
-        description: "A placeholder representing automated data modeling workflows engineered for cleaning, aggregating, and graphing tabular records.",
-        tech: ["python", "pandas", "numpy", "jupyter"],
-        github: "https://github.com",
-        demo: "https://github.com",
-        label: "05",
-        categories: ["backend"],
-        isPlaceholder: true,
-        statusLabel: "certification project"
-    },
+    // {
+    //     title: "academic database system",
+    //     description: "A placeholder for a relational database project focused on advanced normalizations, transactional isolation, and query query optimizations.",
+    //     tech: ["postgresql", "sql server", "database optimization"],
+    //     label: "04",
+    //     categories: ["backend"],
+    //     isPlaceholder: true,
+    //     statusLabel: "academic project"
+    // },
+    // {
+    //     title: "data analytics workflow",
+    //     description: "A placeholder representing automated data modeling workflows engineered for cleaning, aggregating, and graphing tabular records.",
+    //     tech: ["python", "pandas", "numpy", "jupyter"],
+    //     label: "05",
+    //     categories: ["backend"],
+    //     isPlaceholder: true,
+    //     statusLabel: "certification project"
+    // },
 ]
 
 type FilterCategory = "all" | "frontend" | "backend" | "infra"
@@ -81,19 +73,19 @@ export function ProjectsList() {
     return (
         <div className="space-y-8">
             {/* Category Filter Controls */}
-            <div className="flex flex-wrap gap-2 font-mono text-[10px]">
+            <div className="flex flex-wrap gap-2.5 font-mono text-[10px]">
                 {(["all", "frontend", "backend", "infra"] as FilterCategory[]).map((cat) => {
                     const isActive = filter === cat
                     return (
                         <button
                             key={cat}
                             onClick={() => setFilter(cat)}
-                            className={`px-2 py-0.5 rounded border transition-colors cursor-pointer ${isActive
-                                    ? "border-zinc-900 dark:border-zinc-100 bg-zinc-900 dark:bg-zinc-100 text-zinc-50 dark:text-zinc-950 font-bold"
-                                    : "border-zinc-200 dark:border-zinc-900 bg-transparent text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 hover:dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900/50"
+                            className={`px-3.5 py-1 rounded-full border cursor-pointer transition-all duration-250 ${isActive
+                                    ? "btn-gel border-transparent text-white font-semibold"
+                                    : "border-white/25 dark:border-white/10 bg-white/20 dark:bg-white/5 text-zinc-600 dark:text-zinc-400 hover:text-zinc-955 hover:dark:text-zinc-200 hover:bg-white/40 hover:dark:bg-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.25)]"
                                 }`}
                         >
-                            [{cat}]
+                            {cat}
                         </button>
                     )
                 })}
@@ -104,32 +96,32 @@ export function ProjectsList() {
                 {filteredProjects.map((project) => (
                     <div
                         key={project.title}
-                        className="group relative rounded border border-zinc-200 dark:border-zinc-900 bg-zinc-100/30 dark:bg-zinc-950/20 hover:border-zinc-300 dark:hover:border-zinc-800 hover:bg-zinc-200/20 dark:hover:bg-zinc-900/10 transition-all duration-200 flex flex-col justify-between font-mono"
+                        className="liquid-glass liquid-glass-hover glass-glossy group relative transition-all duration-300 flex flex-col justify-between font-mono overflow-hidden"
                     >
                         <div className="p-6 space-y-4">
-                            <div className="flex items-center justify-between border-b border-zinc-250 dark:border-zinc-900/60 pb-3">
+                            <div className="flex items-center justify-between border-b border-white/15 dark:border-white/5 pb-3">
                                 <div className="flex items-center gap-2">
-                                    <span className="text-[10px] text-zinc-400 dark:text-zinc-600">{project.label} {"//"}</span>
-                                    <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-950 group-hover:dark:text-white transition-colors">
+                                    <span className="text-[10px] text-zinc-455 dark:text-zinc-500">{project.label} {"//"}</span>
+                                    <h3 className="text-sm font-bold text-zinc-955 dark:text-white group-hover:text-primary transition-colors tracking-tight">
                                         {project.title}
                                     </h3>
                                 </div>
                                 {project.isPlaceholder && (
-                                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[9px] font-medium bg-zinc-200/50 dark:bg-zinc-900/50 text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800">
+                                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[9px] font-medium bg-white/35 dark:bg-white/5 text-zinc-600 dark:text-zinc-450 border border-white/20 dark:border-white/5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.25)]">
                                         <span>{project.statusLabel}</span>
                                     </span>
                                 )}
                             </div>
 
-                            <p className="text-[11px] text-zinc-550 dark:text-zinc-500 leading-relaxed font-sans min-h-[50px]">
+                            <p className="text-[11px] text-zinc-650 dark:text-zinc-400 leading-relaxed font-sans min-h-[50px]">
                                 {project.description}
                             </p>
 
-                            <div className="flex flex-wrap gap-1">
+                            <div className="flex flex-wrap gap-1.5">
                                 {project.tech.map((t, idx) => (
                                     <span
                                         key={idx}
-                                        className="px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-900 bg-zinc-200/20 dark:bg-zinc-900/20 text-[9px] text-zinc-650 dark:text-zinc-400 group-hover:border-zinc-300 dark:group-hover:border-zinc-800 transition-colors"
+                                        className="px-2 py-0.5 rounded-full border border-white/20 dark:border-white/5 bg-white/25 dark:bg-white/5 text-[9px] text-zinc-650 dark:text-zinc-400 group-hover:border-white/30 dark:group-hover:border-white/10 transition-colors shadow-[inset_0_1px_0_0_rgba(255,255,255,0.25)]"
                                     >
                                         {t}
                                     </span>
@@ -137,28 +129,36 @@ export function ProjectsList() {
                             </div>
                         </div>
 
-                        <div className="border-t border-zinc-200 dark:border-zinc-900/60 bg-zinc-200/30 dark:bg-zinc-950/40 p-4 px-6 flex items-center justify-between text-xs">
-                            <a
-                                id={`project-git-${project.title.replace(/\s+/g, '-')}`}
-                                href={project.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 text-[10px] text-zinc-500 dark:text-zinc-500 hover:text-zinc-900 hover:dark:text-zinc-300 transition-colors"
-                            >
-                                <GithubIcon className="h-3 w-3" />
-                                <span>[github]</span>
-                            </a>
-                            <a
-                                id={`project-live-${project.title.replace(/\s+/g, '-')}`}
-                                href={project.demo}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 text-[10px] text-zinc-600 dark:text-zinc-450 hover:text-zinc-900 hover:dark:text-zinc-250 transition-colors"
-                            >
-                                <span>[live demo]</span>
-                                <ArrowUpRight className="h-3 w-3" />
-                            </a>
-                        </div>
+                        {(project.github || project.demo) && (
+                            <div className="border-t border-white/15 dark:border-white/5 bg-white/15 dark:bg-zinc-950/20 p-4 px-6 flex items-center justify-between text-xs">
+                                {project.github ? (
+                                    <a
+                                        id={`project-git-${project.title.replace(/\s+/g, '-')}`}
+                                        href={project.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-1.5 text-[10px] text-zinc-550 dark:text-zinc-500 hover:text-primary transition-colors"
+                                    >
+                                        <GithubIcon className="h-3 w-3 text-zinc-455 group-hover:text-primary" />
+                                        <span>[github]</span>
+                                    </a>
+                                ) : (
+                                    <div />
+                                )}
+                                {project.demo && (
+                                    <a
+                                        id={`project-live-${project.title.replace(/\s+/g, '-')}`}
+                                        href={project.demo}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-1 text-[10px] text-zinc-650 dark:text-zinc-400 hover:text-primary transition-colors font-semibold"
+                                    >
+                                        <span>[live demo]</span>
+                                        <ArrowUpRight className="h-3 w-3 text-primary" />
+                                    </a>
+                                )}
+                            </div>
+                        )}
                     </div>
                 ))}
             </div>

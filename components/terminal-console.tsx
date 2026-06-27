@@ -86,33 +86,33 @@ export function TerminalConsole() {
   }, [history])
 
   return (
-    <div className="rounded border border-zinc-200 dark:border-zinc-900 bg-zinc-100/40 dark:bg-zinc-950/40 font-mono text-[11px] overflow-hidden shadow-xs">
+    <div className="liquid-glass glass-glossy overflow-hidden font-mono text-[11px] hover:border-white/35 dark:hover:border-white/15 transition-all duration-300">
       {/* Terminal Title Bar */}
-      <div className="flex items-center justify-between px-3 py-2 border-b border-zinc-200 dark:border-zinc-900 bg-zinc-200/20 dark:bg-zinc-950/50">
-        <div className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-800" />
-          <span className="w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-800" />
-          <span className="w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-800" />
+      <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-white/20 dark:border-white/10 bg-white/35 dark:bg-zinc-900/40">
+        <div className="flex items-center gap-2">
+          <span className="w-3 h-3 rounded-full bg-[#ff5f56] shadow-[0_0_6px_rgba(255,95,86,0.5)] cursor-pointer hover:opacity-80 transition-opacity" />
+          <span className="w-3 h-3 rounded-full bg-[#ffbd2e] shadow-[0_0_6px_rgba(255,189,46,0.5)] cursor-pointer hover:opacity-80 transition-opacity" />
+          <span className="w-3 h-3 rounded-full bg-[#27c93f] shadow-[0_0_6px_rgba(39,201,63,0.5)] cursor-pointer hover:opacity-80 transition-opacity" />
         </div>
-        <span className="text-[10px] text-zinc-400 dark:text-zinc-500">guest@djordy: ~</span>
-        <div className="w-10" />
+        <span className="text-[10px] font-semibold text-zinc-500 dark:text-zinc-400">guest@djordy: ~</span>
+        <div className="w-12" />
       </div>
 
       {/* Terminal Body */}
       <div 
         ref={bodyRef}
-        className="p-4 h-56 overflow-y-auto space-y-2 text-zinc-700 dark:text-zinc-305 bg-white/40 dark:bg-black/20"
+        className="p-4 h-56 overflow-y-auto space-y-2 text-zinc-800 dark:text-zinc-200 bg-white/10 dark:bg-black/10 backdrop-blur-md"
       >
         {history.map((item, i) => (
           <div key={i} className="whitespace-pre-wrap leading-relaxed">
             {item.type === "input" && (
-              <span className="text-zinc-900 dark:text-zinc-100 font-semibold">{item.text}</span>
+              <span className="text-zinc-950 dark:text-white font-bold">{item.text}</span>
             )}
             {item.type === "output" && (
-              <span className="text-zinc-500 dark:text-zinc-400">{item.text}</span>
+              <span className="text-zinc-600 dark:text-zinc-350">{item.text}</span>
             )}
             {item.type === "error" && (
-              <span className="text-red-500/80 dark:text-red-400/70">{item.text}</span>
+              <span className="text-red-500 font-semibold">{item.text}</span>
             )}
           </div>
         ))}
@@ -124,14 +124,14 @@ export function TerminalConsole() {
           e.preventDefault()
           handleCommand(input)
         }}
-        className="flex items-center gap-2 px-4 py-2 border-t border-zinc-200 dark:border-zinc-900 bg-zinc-200/10 dark:bg-zinc-950/20"
+        className="flex items-center gap-2 px-4 py-2 border-t border-white/20 dark:border-white/10 bg-white/25 dark:bg-zinc-900/30"
       >
-        <span className="text-zinc-900 dark:text-zinc-205 font-semibold shrink-0">visitor@djordy.dev:~$</span>
+        <span className="text-primary font-bold shrink-0">visitor@djordy.dev:~$</span>
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className="w-full bg-transparent text-zinc-900 dark:text-zinc-100 outline-none placeholder:text-zinc-400"
+          className="w-full bg-transparent text-zinc-950 dark:text-white outline-none placeholder:text-zinc-400 dark:placeholder:text-zinc-650"
           placeholder="type help..."
           autoComplete="off"
           autoCapitalize="off"

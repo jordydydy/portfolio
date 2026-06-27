@@ -63,28 +63,28 @@ export function ExperienceList() {
   }
 
   return (
-    <div className="relative border-l border-zinc-200 dark:border-zinc-900 ml-2 pl-6 space-y-10 py-1 font-mono">
+    <div className="relative border-l-2 border-white/20 dark:border-white/10 ml-2 pl-6 space-y-10 py-1 font-mono">
       {experiences.map((exp, i) => {
         const isExpanded = expandedIndices.includes(i)
 
         return (
           <div key={i} className="relative group">
             {/* Timeline Circle */}
-            <div className={`absolute -left-[31px] top-1 flex h-2 w-2 items-center justify-center rounded-full bg-zinc-50 dark:bg-black border transition-colors ${
+            <div className={`absolute -left-[32px] top-1.5 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-white dark:bg-zinc-950 border transition-all duration-300 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.4)] ${
               isExpanded 
-                ? "border-zinc-900 dark:border-zinc-100" 
-                : "border-zinc-300 dark:border-zinc-700 group-hover:border-zinc-500 dark:group-hover:border-zinc-400"
+                ? "border-primary bg-primary/20 scale-110 shadow-[0_0_8px_rgba(99,102,241,0.5)]" 
+                : "border-white/40 dark:border-white/10 group-hover:border-primary/50 group-hover:scale-105"
             }`} />
 
             {/* Experience Card */}
             <div 
               onClick={() => toggleExpand(i)}
-              className="space-y-4 rounded border border-zinc-200 dark:border-zinc-900 bg-zinc-100/30 dark:bg-zinc-950/20 p-6 hover:border-zinc-300 dark:hover:border-zinc-800 transition-colors cursor-pointer select-none"
+              className="liquid-glass liquid-glass-hover glass-glossy space-y-4 p-6 cursor-pointer select-none"
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
-                    <h3 className="font-semibold text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-950 group-hover:dark:text-white transition-colors">
+                    <h3 className="font-bold text-sm text-zinc-950 dark:text-white group-hover:text-primary transition-colors tracking-tight">
                       {exp.role}
                     </h3>
                     {isExpanded ? (
@@ -93,40 +93,40 @@ export function ExperienceList() {
                       <ChevronRight className="h-3.5 w-3.5 text-zinc-400" />
                     )}
                   </div>
-                  <div className="text-[10px] text-zinc-450 dark:text-zinc-500">
+                  <div className="text-[10px] text-zinc-500 dark:text-zinc-400">
                     <span>{exp.company}</span>
                   </div>
                 </div>
 
-                <div className="inline-flex items-center gap-1.5 rounded border border-zinc-200 dark:border-zinc-855 bg-zinc-200/20 dark:bg-zinc-900/10 px-2 py-0.5 text-[9px] text-zinc-550 dark:text-zinc-500">
-                  <Calendar className="h-3 w-3" />
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-white/25 dark:border-white/10 bg-white/20 dark:bg-white/5 px-2.5 py-0.5 text-[9px] text-zinc-650 dark:text-zinc-400 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.25)]">
+                  <Calendar className="h-3 w-3 text-primary" />
                   <span>{exp.period}</span>
                 </div>
               </div>
 
               {isExpanded && (
-                <div className="space-y-4 pt-2 border-t border-zinc-200/40 dark:border-zinc-900/40 animate-in fade-in duration-200">
-                  <p className="text-[11px] text-zinc-655 dark:text-zinc-400 font-sans leading-relaxed">
+                <div className="space-y-4 pt-4 border-t border-white/10 dark:border-white/5 animate-in fade-in duration-250">
+                  <p className="text-[11px] text-zinc-650 dark:text-zinc-350 font-sans leading-relaxed">
                     {exp.description}
                   </p>
 
                   <div className="space-y-2">
-                    <span className="text-[9px] uppercase tracking-wider text-zinc-400 dark:text-zinc-650 block font-bold">Deliverables //</span>
+                    <span className="text-[9px] uppercase tracking-wider text-primary block font-bold">Deliverables //</span>
                     <ul className="space-y-1.5">
                       {exp.highlights.map((highlight, idx) => (
-                        <li key={idx} className="flex items-start gap-1.5 text-[11px] text-zinc-500">
-                          <ChevronRight className="h-3.5 w-3.5 text-zinc-350 dark:text-zinc-700 shrink-0 mt-0.5" />
-                          <span className="font-sans text-zinc-600 dark:text-zinc-500 leading-relaxed">{highlight}</span>
+                        <li key={idx} className="flex items-start gap-1.5 text-[11px]">
+                          <ChevronRight className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
+                          <span className="font-sans text-zinc-650 dark:text-zinc-350 leading-relaxed">{highlight}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="flex flex-wrap gap-1 pt-1">
+                  <div className="flex flex-wrap gap-1.5 pt-1">
                     {exp.skills.map((skill, idx) => (
                       <span 
                         key={idx} 
-                        className="px-1.5 py-0.5 rounded border border-zinc-200 dark:border-zinc-900 bg-zinc-200/30 dark:bg-zinc-900/30 text-[9px] text-zinc-600 dark:text-zinc-400"
+                        className="px-2 py-0.5 rounded-full border border-white/20 dark:border-white/5 bg-white/25 dark:bg-white/5 text-[9px] text-zinc-650 dark:text-zinc-400 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2)]"
                       >
                         {skill}
                       </span>

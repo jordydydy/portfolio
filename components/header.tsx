@@ -45,31 +45,31 @@ export function Header() {
     }
 
     return (
-        <header className="sticky top-0 z-40 flex h-14 w-full items-center justify-between border-b border-zinc-200 dark:border-zinc-900 bg-white dark:bg-black px-6">
+        <header className="sticky top-0 z-40 flex h-14 w-full items-center justify-between border-b border-white/20 dark:border-white/10 bg-white/40 dark:bg-zinc-950/40 backdrop-blur-xl px-6 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.25)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)]">
             <div className="flex items-center gap-3">
-                <SidebarTrigger className="h-8 w-8 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors" />
-                <div className="h-3.5 w-[1px] bg-zinc-200 dark:bg-zinc-800" />
-                <div className="flex items-center gap-1.5 text-xs font-mono text-zinc-400 dark:text-zinc-500">
+                <SidebarTrigger className="h-8 w-8 text-zinc-650 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-white/30 dark:hover:bg-white/10 transition-colors rounded-full" />
+                <div className="h-3.5 w-[1px] bg-zinc-200/50 dark:bg-zinc-800/50" />
+                <div className="flex items-center gap-1.5 text-xs font-mono text-zinc-500 dark:text-zinc-400">
                     <span className="hover:text-zinc-900 dark:hover:text-zinc-100 cursor-default">jordy.dev</span>
-                    <ChevronRight className="h-3 w-3 text-zinc-300 dark:text-zinc-700" />
-                    <span className="text-zinc-900 dark:text-zinc-200">{getPageTitle()}</span>
+                    <ChevronRight className="h-3 w-3 text-zinc-400 dark:text-zinc-600" />
+                    <span className="text-zinc-900 dark:text-zinc-100 font-semibold">{getPageTitle()}</span>
                 </div>
             </div>
 
             <div className="flex items-center gap-2.5">
                 <button
                     onClick={() => window.dispatchEvent(new Event("open-command-palette"))}
-                    className="hidden sm:inline-flex h-8 items-center gap-1.5 rounded-md border border-zinc-200 dark:border-zinc-850 bg-transparent px-2.5 text-[10px] font-mono text-zinc-550 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors cursor-pointer"
+                    className="hidden sm:inline-flex h-8 items-center gap-1.5 rounded-full border border-white/30 dark:border-white/10 bg-white/20 dark:bg-white/5 px-3.5 text-[10px] font-mono text-zinc-700 dark:text-zinc-300 hover:bg-white/40 dark:hover:bg-white/10 hover:border-white/45 dark:hover:border-white/20 hover:text-zinc-950 dark:hover:text-zinc-100 transition-all cursor-pointer shadow-[inset_0_1px_0_0_rgba(255,255,255,0.3)] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05)]"
                 >
                     <span>search</span>
-                    <kbd className="bg-zinc-100 dark:bg-zinc-900 px-1 py-0.5 rounded border border-zinc-200 dark:border-zinc-800 text-[8px] tracking-tight">⌘K</kbd>
+                    <kbd className="bg-white/45 dark:bg-zinc-900/60 px-1 py-0.5 rounded border border-white/40 dark:border-zinc-800 text-[8px] tracking-tight">⌘K</kbd>
                 </button>
 
                 {mounted && (
                     <button
                         id="theme-toggle"
                         onClick={toggleTheme}
-                        className="flex h-8 w-8 items-center justify-center rounded-md border border-zinc-200 dark:border-zinc-850 bg-transparent text-zinc-500 dark:text-zinc-450 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors cursor-pointer"
+                        className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 dark:border-white/10 bg-white/20 dark:bg-white/5 text-zinc-600 dark:text-zinc-300 hover:bg-white/40 dark:hover:bg-white/10 hover:text-zinc-950 dark:hover:text-zinc-100 transition-all cursor-pointer shadow-[inset_0_1px_0_0_rgba(255,255,255,0.3)]"
                         title={`Current: ${theme}. Click to change.`}
                     >
                         {theme === "dark" ? (
@@ -91,7 +91,7 @@ export function Header() {
                     href="https://github.com/jordydydy"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex h-8 items-center justify-center gap-2 rounded-md border border-zinc-200 dark:border-zinc-850 bg-transparent px-3 text-xs font-mono text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors duration-200"
+                    className="inline-flex h-8 items-center justify-center gap-2 rounded-full border border-white/30 dark:border-white/10 bg-white/20 dark:bg-white/5 px-4 text-xs font-mono text-zinc-600 dark:text-zinc-300 hover:bg-white/40 dark:hover:bg-white/10 hover:text-zinc-950 dark:hover:text-zinc-100 transition-all duration-200 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.3)]"
                 >
                     <GithubIcon className="h-3.5 w-3.5" />
                     <span>github</span>
