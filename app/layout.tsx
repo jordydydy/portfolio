@@ -33,14 +33,14 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100 font-sans">
+      <body className="min-h-full bg-background text-foreground font-sans">
         <ThemeProvider defaultTheme="system">
           <CommandPalette />
           <SidebarProvider>
             <AppSidebar />
-            <SidebarInset className="flex flex-col min-h-screen bg-zinc-50 dark:bg-black">
+            <SidebarInset className="flex flex-col min-h-screen bg-background">
               <Header />
-              <div className="flex-1 overflow-y-auto bg-zinc-50 dark:bg-black">
+              <div className="flex-1 overflow-y-auto bg-background">
                 {children}
               </div>
             </SidebarInset>

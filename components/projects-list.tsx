@@ -113,7 +113,7 @@ export function ProjectsList() {
                                 )}
                             </div>
 
-                            <p className="text-[11px] text-zinc-650 dark:text-zinc-400 leading-relaxed font-sans min-h-[50px]">
+                            <p className="text-[11px] text-zinc-650 dark:text-zinc-400 leading-relaxed font-sans min-h-12.5">
                                 {project.description}
                             </p>
 
